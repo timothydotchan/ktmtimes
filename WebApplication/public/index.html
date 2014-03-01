@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="thinkRecursionApp">
+  <head>
+    <meta charset="utf-8">
+    <title>KTM Times</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+    <link href="css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="css/global.css" rel="stylesheet">
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link rel="shortcut icon" href="ico/favicon.ico">
+    
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/font-awesome.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet">
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body ng-controller="HomeController" ng-cloak>
+    <!--.Content Wrapper-->
+    <div class="container-fluid content-wrapper">
+    <!--.Logo Bar & Login-->
+
+    <div class="row-fluid">
+    <div class="logobar">
+    <div class="logo pull-left"><h1 style="text-shadow: 0px 0px 1px #808080;">KTM Times</h1></div>
+    <!--
+    <div class="login-signup pull-right"><a data-toggle="modal" href="#loginModal">Login</a> | <a data-toggle="modal" href="#registerModal">Register</a></div>
+  -->
+    </div>
+    </div>
+     <!--/.Logo Bar & Login-->
+    
+    <!--.Navigation Bar-->
+    <div class="navbar" id="access">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+         
+            <div class="menu nav-collapse">
+                 <ul class="nav">
+                        <li class="active">
+                           <a href="index.html">Top News</a>
+                        </li>
+
+                         <li><a href="#">World</a></li>
+                         <li><a href="#">U.S</a></li>
+                         <li><a href="#">Business</a></li>
+                         <li><a href="#">Politics</a></li>
+                         <li><a href="#">Sports</a></li>
+                         <li><a href="#">Technology</a></li>
+                         <li><a href="#">Science</a></li>
+                         <li><a href="#">Arts</a></li>
+                </ul>
+                <form class="navbar-search pull-right">
+                        <input type="text" placeholder="Search" class="search-query span2">
+               </form>
+         </div>
+        </div>
+      </div>
+    </div>
+
+  <!--/.Navigation Bar-->
+
+  <!--Advertisement -->
+
+    <div class="advert">
+      <div class="advert-banner"><a href="#"><img src="img/ad1.jpg" alt=""></a></div>
+    </div>
+
+    <!--/.Advertisement -->
+
+    
+      <div class="row-fluid">
+      
+        <div class="span9">
+        
+            <!--.Latest Posts 3-->
+
+            <div class="row-fluid">
+
+            <div class="span4 latest" ng-repeat="article in topSectionNews">
+                <div class="latest-post">
+                  <div class="lastest-post img-wrap">
+                      <a href="single.html"><img class="featured" ng-src="{{article.imageReferences[0]}}"></a>
+                        <div class="time-ago"><a href="single.html">1 hour ago</a></div>
+                      </div>
+                      <p><a href="single.html">{{article.headline}}</a></p>
+                </div>
+            </div>
+          </div>
+      <!--/.Latest Posts 3-->
+
+      <!--.Horizontal Rule-->
+      <hr class="lrgRule">
+      <!--/.Horizontal Rule-->
+          
+          
+          <!--.Carousel-->
+            <div id="myCarousel" class="carousel slide">
+                            <div class="carousel-inner">
+                            
+                            <!--.Carousel Item-->
+                              <div class="item" ng-class="{active: $first}" ng-repeat="article in slideSectionNews">
+                                <a href="single.html"><img title="water" alt="water" class="attachment-feature-home" ng-src="{{article.imageReferences[0]}}"></a>
+                                 <h4><a href="single.html">{{article.headline}}</a></h4>
+                                <div class="carousel-caption">
+                                 
+                              <p>{{article.description}}</p>
+                                </div>
+                              </div>
+
+                              </div>
+                              
+                             <!--.Carousel Arrows-->
+                            <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
+                            <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
+                            <!--/.Carousel Arrows-->
+          </div>
+          <!--/.Carousel-->
+
+          <div class="row-fluid">
+           
+            <!--.Article Post-->
+            <div class="post" ng-repeat="article in mainSectionNews">
+            
+              <hr class="lrgRule heavy">  
+
+                   <h2><a href="single.html">{{article.headline}}</a></h2>
+    
+                          <div class="meta-wrap">          
+                                    <div class="meta pull-left">
+                                       <span class="dateTime"> Posted by <span class="author"><a href="#">{{article.author}}</a></span>  at 11:20 am April 15, 2012</span>
+                                    </div>
+                                
+                                    <div class="post-share pull-right">
+                                            <div class="meta-comments pull-right">
+                                             <a href="single.html#comments">
+                                              <i class="fa fa-comments"></i> COMMENTS 
+                                                <div class="comments-bubble pull-right">
+                                                  <span class="comment-num"> </i>100</span>
+                                                </div>
+                                              </a>
+                                            </div>
+                                    </div>
+                            </div>
+
+                        <a href="single.html"><img title="Water" alt="Water" class="attachment-post-thumbnail" ng-src="{{article.imageReferences[0]}}"></a>
+                        <p>{{article.description}}</p>
+                       <div class="readmore"><a href="single.html" class="readmore pull-right">Read &amp; Comment ></a></div>
+
+            </div>
+            <!--/.Article Post-->
+          </div><!--/row-->
+        </div><!--/span-->
+        
+        
+        <!--Top Sidebar-->
+
+
+          <div class="span3">
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li class="active"><a href="#">Top News</a></li>
+              <li class="nav-header">Category</li>
+               <li><a href="#">World</a></li>
+               <li><a href="#">U.S</a></li>
+               <li><a href="#">Business</a></li>
+               <li><a href="#">Politics</a></li>
+               <li><a href="#">Sports</a></li>
+               <li><a href="#">Technology</a></li>
+               <li><a href="#">Science</a></li>
+               <li><a href="#">Arts</a></li>
+            </ul>
+          </div><!--/.well -->
+        </div><!--/span-->
+        
+       <!--/Top Sidebar-->
+       
+       
+       
+       <!--Advert Sidebar-->
+
+          <div class="span3">
+            <div class="side-advert"><a href="#"><img src="img/ad2.jpg" alt=""></a></div>
+            <div class="side-advert"><a href="#"><img src="img/ad2.jpg" alt=""></a></div>
+            <div class="side-advert"><a href="#"><img src="img/ad2.jpg" alt=""></a></div>
+          </div><!--/span-->
+          
+
+        
+       <!--/Advert Sidebar-->
+      </div><!--/row-->
+
+    <!--.BackToTopBtn-->
+    <div id="toTop" class="btn">Back to Top</div>
+    <!--/.BackToTopBtn-->
+
+      <hr>
+
+
+    <!--.Footer-->
+      <footer>
+      <div class="row-fluid">
+      <div class="span3">
+      
+            <h4>Be Social.</h4>
+            
+              <ul class="footerlists">
+                <li><a href="http://www.facebook.com/KTMtimes"><i class="fa fa-facebook"></i> Facebook</a></li>
+                <li><a href="http://www.twitter.com/KTMtimes"><i class="fa fa-twitter"></i> Twitter</a></li>
+              </ul>
+                
+      </div><!--/span-->
+      
+      <div class="span3">
+      
+      <h4>Categories.</h4>
+            <ul class="footerlists">
+               <li><a href="#">World</a></li>
+               <li><a href="#">U.S</a></li>
+               <li><a href="#">Business</a></li>
+               <li><a href="#">Politics</a></li>
+               <li><a href="#">Sports</a></li>
+               <li><a href="#">Technology</a></li>
+               <li><a href="#">Science</a></li>
+               <li><a href="#">Arts</a></li>
+            </ul>
+            
+      </div><!--/span-->
+      
+      
+      <div class="span3">
+      
+            <h4>Links.</h4>
+            <ul class="footerlists">
+                <li><a href="">Our Friends</a></li>
+                <li><a href="">Sponsors</a></li>
+                <li><a href="">Network</a></li>
+                <li><a href="">Community</a></li>
+            </ul>
+            
+      </div><!--/span-->
+      </div>
+      
+            <hr>
+      
+      <div class="row-fluid">
+           <div class="span4">
+            <p>&copy; KTM Times 2014</p>
+          </div><!--/span-->
+      </div>
+        
+      </footer>
+      <!--/.Footer-->
+
+    </div>
+    <!--/.Content Wrapper-->
+
+  <!--.Login Modal-->
+    <div class="modal hide" id="loginModal">
+    <div class="modal-header">
+    <button class="close" data-dismiss="modal">×</button>
+    <h3>Login</h3>
+    </div>
+    <div class="modal-body">
+    
+    <form>
+            <label>Username</label>
+            <input type="text" placeholder="Username" class="span5">
+            <label>Password</label>
+            <input type="text" placeholder="Password" class="span5">
+            <br>
+            <button class="btn btn-primary" type="submit">Login</button> | <button class="btn " type="submit">Forgot Password?</button>
+    </form>
+    
+    </div>
+    <div class="modal-footer">
+Not Registered With Us? <a href="#registerModal" data-dismiss="modal" data-toggle="modal">Register</a> Today.
+    </div>
+    </div>
+    <!--/.Login Modal-->
+    
+    <!--.Register Modal-->
+    <div class="modal hide" id="registerModal">
+    <div class="modal-header">
+    <button class="close" data-dismiss="modal">×</button>
+    <h3>Register</h3>
+    </div>
+    <div class="modal-body">
+    
+     <form>
+            <label>Username</label>
+            <input type="text" placeholder="Username" class="span5">
+            <label>Email</label>
+            <input type="text" placeholder="eg. username@youremail.com" class="span5">
+            <label>Password</label>
+            <input type="text" placeholder="Password" class="span5">
+            <label>Password Again</label>
+            <input type="text" placeholder="Password Again" class="span5">
+            <br>
+            <button class="btn btn-primary" type="submit">Sign Up</button>
+    </form>
+    
+    </div>
+    <div class="modal-footer">
+
+    </div>
+    </div>
+    <!--/.Register Modal-->
+
+    <!--.Add Scripts Below This Line-->
+        <script src="lib/jquery.js"></script>
+        <script src="lib/global.js"></script>
+        <script src="lib/bootstrap.js"></script>
+        <script src="js/angular.min.js"></script>
+        <script src="js/controller/homecontroller.js"></script>
+    <!--/.Scripts-->
+  </body>
+</html>
